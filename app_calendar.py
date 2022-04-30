@@ -1,3 +1,6 @@
+from matplotlib import pyplot
+import numpy as np
+
 month_name = "April"
 date = 1
 days_name = ["Mo", "Tu", "Wd", "Th", "Fr", "Sa", "Su"]
@@ -19,6 +22,11 @@ for week_index in range(5):
 
 max_temp = max(month_temps_1d)
 min_temp = min(month_temps_1d)
+
+day_count = []
+for dc in range(1,len(month_temps_1d)+1):
+    day_count.append(dc)
+
 
 # HW 2.4*
 avg_temp = sum(month_temps_1d) / len(month_temps_1d)
@@ -76,3 +84,6 @@ for week_index in range(5):
 print(f"Max temp for {month_name}: {max_temp}C")
 print(f"Min temp for {month_name}: {min_temp}C")
 print(f"AVG temp for {month_name}: {avg_temp:1.1f}C")
+
+pyplot.plot(day_count, month_temps_1d)
+pyplot.show()
